@@ -1,0 +1,46 @@
+{
+  "name": "covid-19-api-for-turkey",
+  "version": "1.0.0",
+  "description": "COVID-19 API for Turkey",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:scraper": "node scrapers.js",
+    "start:devserver": "nodemon index.js",
+    "start:dev": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:devserver\"",
+    "test": "jest --watchAll --runInBand"
+  },
+  "author": "Halil Ibrahim Durmus",
+  "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cron": "^1.8.2",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "got": "^10.7.0",
+    "http-status": "^1.4.2",
+    "ioredis": "^4.17.3",
+    "url": "^0.11.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.4.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "supertest": "^4.0.2"
+  }
+}
