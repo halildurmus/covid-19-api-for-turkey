@@ -1,6 +1,6 @@
-## covid-19-api
+## covid-19-api-for-turkey
 
-COVID-19 API.
+COVID-19 API For Turkey.
 
 ### TODO
 
