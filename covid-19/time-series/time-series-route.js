@@ -4,7 +4,7 @@ const getTimeSeries = require('./time-series-controller')
 const express = require('express')
 const router = express.Router()
 
-// GET route for listing the time series data for Turkey.
+// GET request for listing the time series data for Turkey.
 router.get(
 	'/time-series',
 	catchAsync(async (req, res) => {

@@ -4,7 +4,7 @@ const getLatestReport = require('./latest-report-controller')
 const express = require('express')
 const router = express.Router()
 
-// GET route for listing the latest report data for Turkey.
+// GET request for listing the latest report data for Turkey.
 router.get(
 	'/latest',
 	catchAsync(async (req, res) => {
