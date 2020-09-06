@@ -7,7 +7,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&labelColor=blue&style=for-the-badge)](https://linkedin.com/in/ibrahim39)
 ![Visits](https://badges.pufler.dev/visits/ibrahim39/covid-19-api-for-turkey?style=for-the-badge)
 
-> **COVID-19 API For Turkey** is a **REST API** for **COVID-19** stats in **Turkey**, developed with **[Node.js](https://nodejs.org)**.
+> **COVID-19 API For Turkey** is a **REST API** for **COVID-19** stats in **Turkey**.
 
 ## Table of Contents
 
