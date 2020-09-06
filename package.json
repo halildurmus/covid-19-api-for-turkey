@@ -4,11 +4,11 @@
   "description": "COVID-19 API for Turkey",
   "main": "index.js",
   "scripts": {
-		"start": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:server\"",
-		"start:dev": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:devserver\"",
+    "start": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:server\"",
+    "start:dev": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:devserver\"",
     "start:devserver": "nodemon index.js",
-		"start:scraper": "node scrapers.js",
-		"start:server": "node index.js",
+    "start:scraper": "node scrapers.js",
+    "start:server": "node index.js",
     "test": "jest --watchAll --runInBand"
   },
   "author": "Halil Ibrahim Durmus",
@@ -18,14 +18,15 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-		"concurrently": "^5.3.0",
-		"cron": "^1.8.2",
+    "concurrently": "^5.3.0",
+    "cron": "^1.8.2",
     "csvtojson": "^2.0.10",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "got": "^10.7.0",
     "http-status": "^1.4.2",
     "ioredis": "^4.17.3",
+    "swagger-ui-express": "^4.1.4",
     "url": "^0.11.0",
     "winston": "^3.3.3"
   },

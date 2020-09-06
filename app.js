@@ -1,14 +1,21 @@
-const { apiPrefix } = require('./config')
+const { apiPrefix, swaggerJsonUrl } = require('./config')
 const { error } = require('./middlewares')
 const latestReportRouter = require('./covid-19/latest-report/latest-report-route')
 const timeSeriesRouter = require('./covid-19/time-series/time-series-route')
 const express = require('express')
 const app = express()
+const swaggerUi = require('swagger-ui-express')
+const swaggerOptions = {
+	swaggerOptions: {
+		url: swaggerJsonUrl,
+	},
+}
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 // Routes
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(null, swaggerOptions))
 app.use(apiPrefix, latestReportRouter)
 app.use(apiPrefix, timeSeriesRouter)
 
