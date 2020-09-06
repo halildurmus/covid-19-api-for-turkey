@@ -1,12 +1,13 @@
 # COVID-19 API For Turkey
 
-![GitHub top language](https://img.shields.io/github/languages/top/ibrahim39/covid-19-api-for-turkey)
-[![GitHub contributors](https://img.shields.io/github/contributors-anon/ibrahim39/covid-19-api-for-turkey)](https://github.com/ibrahim39/covid-19-api-for-turkey/graphs/contributors)
-[![GitHub issues](https://img.shields.io/github/issues/ibrahim39/covid-19-api-for-turkey)](https://github.com/ibrahim39/covid-19-api-for-turkey/issues)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ibrahim39/covid-19-api-for-turkey/blob/master/LICENSE)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?logo=linkedin&colorB=555)](https://linkedin.com/in/ibrahim39)
+![GitHub top language](https://img.shields.io/github/languages/top/ibrahim39/covid-19-api-for-turkey?style=for-the-badge)
+[![GitHub contributors](https://img.shields.io/github/contributors-anon/ibrahim39/covid-19-api-for-turkey?style=for-the-badge)](https://github.com/ibrahim39/covid-19-api-for-turkey/graphs/contributors)
+[![GitHub issues](https://img.shields.io/github/issues/ibrahim39/covid-19-api-for-turkey?style=for-the-badge)](https://github.com/ibrahim39/covid-19-api-for-turkey/issues)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://github.com/ibrahim39/covid-19-api-for-turkey/blob/master/LICENSE)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&labelColor=blue&style=for-the-badge)](https://linkedin.com/in/ibrahim39)
+![Visits](https://badges.pufler.dev/visits/ibrahim39/covid-19-api-for-turkey?style=for-the-badge)
 
-> **COVID-19 API For Turkey** is a **REST API** for **Turkey's** **COVID-19** developed with **[Node.js](https://nodejs.org)**.
+> **COVID-19 API For Turkey** is a **REST API** for **COVID-19** stats in **Turkey**, developed with **[Node.js](https://nodejs.org)**.
 
 ## Table of Contents
 
@@ -24,7 +25,7 @@
 
 ## Documentation
 
-You can checkout the documentation on **[here](https://covid-19-api-for-turkey.herokuapp.com/docs)**.
+The documentation can be found **[here](https://covid-19-api-for-turkey.herokuapp.com/docs)**.
 
 ## Getting Started
 
@@ -32,26 +33,27 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-You need to have **Flutter** installed on your pc.
-* [Install Flutter](https://flutter.dev/docs/get-started/install)
+You need to have **[Redis](https://redis.io)** installed on your pc.
+1. [Install Redis](https://redis.io/topics/quickstart)
+2. Run `redis-server` to start redis server.
 
 ### Installation
 
 1. Clone the repo.
 ```sh
-git clone https://github.com/ibrahim39/bmi_calculator.git
+git clone https://github.com/ibrahim39/covid-19-api-for-turkey.git
 ```
-2. To get the packages needed for the app, run:
-```Dart
-flutter pub get
-```
+2. In the project folder you will find a `example.env` file, copy it and rename it to `.env`.
+3. Open the `.env` file and change the `REDIS_HOST` to `localhost` or `127.0.0.1`.
+4. Change the env variables to fit your environment.
+5. Run `npm i` to install the packages needed for the project.
+6. Run `npm run start`
 
 ## Usage
 
-If you have a connected device or emulator running, you can run the app with:
-```Dart
-flutter run
-```
+1. Make sure that the `redis-server` is running.
+2. Open your browser and navigate to `localhost:{PORT}/api/v1/latest` (PORT being the port specified in your `.env` file). 
+You should now see the latest report data on that page.
 
 ## Roadmap
 
