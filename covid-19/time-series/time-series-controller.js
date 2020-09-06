@@ -3,7 +3,7 @@ const { redis } = require('../../utils')
 
 /**
  * Returns the time series data as JSON.
- * @param 	{int}	limit	Number of results to return. If it is set to 0,
+ * @param 	{int}	limit	The number of results to return. If it is set to 0,
  * 											there is no restriction. Defaults to 30.
  * @returns {Object}
  */

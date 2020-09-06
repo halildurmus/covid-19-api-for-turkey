@@ -6,9 +6,14 @@ const router = express.Router()
 
 // GET request for listing the time series data for Turkey.
 router.get(
-	'/time-series',
+	'/timeseries',
 	catchAsync(async (req, res) => {
 		const { limit } = req.query
+
+		if (limit < 0) {
+			throw new APIError(400, `The limit parameter must be a positive number.`)
+		}
+
 		const timeSeries = await getTimeSeries(limit)
 
 		if (!timeSeries) {

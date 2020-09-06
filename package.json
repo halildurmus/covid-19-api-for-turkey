@@ -4,10 +4,9 @@
   "description": "COVID-19 API for Turkey",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "start:scraper": "node scrapers.js",
+		"start": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:devserver\"",
+		"start:scraper": "node scrapers.js",
     "start:devserver": "nodemon index.js",
-    "start:dev": "concurrently --kill-others-on-fail --kill-others \"npm:start:scraper\" \"npm:start:devserver\"",
     "test": "jest --watchAll --runInBand"
   },
   "author": "Halil Ibrahim Durmus",
