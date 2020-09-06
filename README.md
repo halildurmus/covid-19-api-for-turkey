@@ -39,12 +39,9 @@ You need to have **[Redis](https://redis.io)** installed on your pc.
 
 ### Installation
 
-1. Clone the repo.
-```sh
-git clone https://github.com/ibrahim39/covid-19-api-for-turkey.git
-```
+1. Clone the repo using: `git clone https://github.com/ibrahim39/covid-19-api-for-turkey.git`
 2. In the project folder you will find a `example.env` file, copy it and rename it to `.env`.
-3. Open the `.env` file and change the `REDIS_HOST` to `localhost` or `127.0.0.1`.
+3. Open the `.env` file and change the `REDIS_HOST` to `localhost` or `127.0.0.1`
 4. Change the env variables to fit your environment.
 5. Run `npm i` to install the packages needed for the project.
 6. Run `npm run start`
