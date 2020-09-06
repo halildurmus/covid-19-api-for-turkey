@@ -18,9 +18,10 @@ const getLatestReportJob = new CronJob(
 )
 getLatestReportJob.start()
 
-// Creates a cronjob which executes the time series scraper everyday at 10pm.
+// Creates a cronjob which executes the time series scraper
+// every 5 minutes between 6 and 10 pm.
 const getTimeSeriesJob = new CronJob(
-	'00 00 22 * * *',
+	'00 */5 18-22 * * *',
 	getTimeSeries,
 	null,
 	false,
