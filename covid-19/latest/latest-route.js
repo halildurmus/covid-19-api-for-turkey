@@ -1,6 +1,6 @@
 const { catchAsync } = require('../../middlewares')
 const { APIError } = require('../../utils')
-const getLatestReport = require('./latest-report-controller')
+const getLatestReport = require('./latest-controller')
 const express = require('express')
 const router = express.Router()
 

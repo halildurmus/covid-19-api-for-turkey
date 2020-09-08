@@ -1,6 +1,6 @@
 const catchAsync = require('../../middlewares/catchAsync')
 const APIError = require('../../utils/APIError')
-const getTimeSeries = require('./time-series-controller')
+const getTimeSeries = require('./timeseries-controller')
 const express = require('express')
 const router = express.Router()
 
