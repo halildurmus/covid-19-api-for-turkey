@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
+const { formatJson, logger } = require('../utils')
+const redis = require('../db')
 const { redisKeyLatestReport } = require('../config')
-const { formatJson, logger, redis } = require('../utils')
 const got = require('got')
 
 const getLatestReport = async () => {
@@ -54,11 +55,10 @@ const getLatestReport = async () => {
 				'ex',
 				24 * 60 * 60
 			)
-			.catch((err) => logger.error(err))
-
-		logger.info(`Updated the latest report data.`)
+			.then(() => logger.info(`Updated the latest report data.`))
+			.catch((err) => logger.error(`${err}`))
 	} catch (err) {
-		logger.error('Latest report scraper failed!', err)
+		logger.error(`Latest report scraper failed! ${err}`)
 	}
 }
 

@@ -1,8 +1,8 @@
-const catchAsync = require('../../middlewares/catchAsync')
-const APIError = require('../../utils/APIError')
-const getTimeSeries = require('./timeseries-controller')
 const express = require('express')
 const router = express.Router()
+const { APIError } = require('../../utils')
+const { catchAsync } = require('../../middlewares')
+const { getTimeSeries } = require('./timeseries.controller')
 
 // GET request for listing the time series data for Turkey.
 router.get(
@@ -14,13 +14,7 @@ router.get(
 			throw new APIError(400, `The limit parameter must be a positive number.`)
 		}
 
-		const timeSeries = await getTimeSeries(limit)
-
-		if (!timeSeries) {
-			throw new APIError(500, `Couldn't get the time series data.`)
-		}
-
-		res.json(timeSeries)
+		res.json(await getTimeSeries(limit))
 	})
 )
 

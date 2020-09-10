@@ -4,8 +4,8 @@ const getTimeSeries = require('./scrapers/getTimeSeries')
 const { logger } = require('./utils')
 
 // Executes the latest report and time series scrapers.
-getLatestReport().catch((err) => logger.error(err))
-getTimeSeries().catch((err) => logger.error(err))
+getLatestReport().catch((err) => logger.error(`${err}`))
+getTimeSeries().catch((err) => logger.error(`${err}`))
 
 // Creates a cronjob which executes the latest report scraper
 // every 5 minutes between 6 and 10 pm.

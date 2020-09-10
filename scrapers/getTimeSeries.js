@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
+const { formatJson, logger } = require('../utils')
 const { redisKeyTimeSeries } = require('../config')
-const { formatJson, logger, redis } = require('../utils')
+const redis = require('../db')
 const got = require('got')
 
 const getTimeSeries = async () => {
@@ -56,11 +57,10 @@ const getTimeSeries = async () => {
 		// Saves the time series data to redis. The data expires in 24 hours.
 		redis
 			.set(redisKeyTimeSeries, JSON.stringify(timeSeries), 'ex', 24 * 60 * 60)
-			.catch((err) => logger.error(err))
-
-		logger.info(`Updated the time series data.`)
+			.then(() => logger.info(`Updated the time series data.`))
+			.catch((err) => logger.error(`${err}`))
 	} catch (err) {
-		logger.error('Time series scraper failed!', err)
+		logger.error(`Time series scraper failed! ${err}`)
 	}
 }
 
