@@ -1,6 +1,7 @@
+const { APIError, loggers } = require('../utils')
 const { nodeEnv } = require('../config')
-const { APIError, logger } = require('../utils')
 const httpStatus = require('http-status')
+const logger = loggers.loggerServer
 
 const sendErrorDev = (err, res) => {
 	logger.error('ERROR 💥:', err)

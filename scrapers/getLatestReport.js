@@ -1,8 +1,9 @@
 /* eslint-disable camelcase */
-const { formatJson, logger } = require('../utils')
+const { formatJson, loggers } = require('../utils')
 const redis = require('../db')
 const { redisKeyLatestReport } = require('../config')
 const got = require('got')
+const logger = loggers.loggerScraper
 
 async function getLatestReport() {
 	try {

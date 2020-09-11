@@ -1,6 +1,6 @@
 require('./utils/uncaughtException')
 const app = require('./app')
-const { logger } = require('./utils')
+const logger = require('./utils').loggers.loggerServer
 const port = process.env.PORT || 3000
 
 const server = app.listen(port, (err) => {
@@ -8,7 +8,7 @@ const server = app.listen(port, (err) => {
 		logger.error(`${err}`)
 		process.exit(1)
 	}
-	logger.info(`Server is up on port ${port}.`, { service: 'server' })
+	logger.info(`Server is up on port ${port}.`)
 })
 
 process.on('unhandledRejection', (err) => {

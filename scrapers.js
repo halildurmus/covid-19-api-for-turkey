@@ -1,7 +1,7 @@
 const CronJob = require('cron').CronJob
 const getLatestReport = require('./scrapers/getLatestReport')
 const getTimeSeries = require('./scrapers/getTimeSeries')
-const { logger } = require('./utils')
+const logger = require('./utils').loggers.loggerScraper
 
 // Executes the latest report and time series scrapers.
 getLatestReport().catch((err) => logger.error(`${err}`))
