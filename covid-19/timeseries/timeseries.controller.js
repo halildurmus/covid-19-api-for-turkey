@@ -7,7 +7,7 @@ module.exports = {
 	 * Returns the time series data as JSON.
 	 * @param 	{int}	limit	The number of results to return. If it is set to 0,
 	 * 											there is no restriction. Defaults to 30.
-	 * @returns {Object}
+	 * @returns A JSON Object or an exception.
 	 */
 	async getTimeSeries(limit = 30) {
 		if (limit === 0) {

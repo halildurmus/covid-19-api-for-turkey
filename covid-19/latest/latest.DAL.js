@@ -7,13 +7,7 @@ class LatestRepository {
 	}
 
 	async getLatestReport() {
-		const data = await this.redis.get(this.redisKey)
-
-		if (!data) {
-			return
-		}
-
-		return JSON.parse(data)
+		return await this.redis.get(this.redisKey)
 	}
 }
 

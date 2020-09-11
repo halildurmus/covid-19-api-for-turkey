@@ -4,7 +4,7 @@ const { redisKeyTimeSeries } = require('../config')
 const redis = require('../db')
 const got = require('got')
 
-const getTimeSeries = async () => {
+async function getTimeSeries() {
 	try {
 		const url = 'https://covid19.saglik.gov.tr/covid19api?getir=liste'
 		const response = await got.get(url)

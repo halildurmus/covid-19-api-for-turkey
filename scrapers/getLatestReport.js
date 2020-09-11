@@ -4,7 +4,7 @@ const redis = require('../db')
 const { redisKeyLatestReport } = require('../config')
 const got = require('got')
 
-const getLatestReport = async () => {
+async function getLatestReport() {
 	try {
 		const url = 'https://covid19.saglik.gov.tr/covid19api?getir=sondurum'
 		const response = await got.get(url)
@@ -17,7 +17,6 @@ const getLatestReport = async () => {
 		}
 
 		const data = formatJson(JSON.parse(response.body)[0])
-
 		const {
 			agir_hasta_sayisi,
 			gunluk_iyilesen,
