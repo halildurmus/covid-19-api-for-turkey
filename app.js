@@ -16,6 +16,9 @@ app.use(express.urlencoded({ extended: true }))
 
 // Routes
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(null, swaggerOptions))
+app.get('/', async (req, res) => {
+	res.redirect('/docs')
+})
 app.use(apiPrefix, latestReportRouter)
 app.use(apiPrefix, timeSeriesRouter)
 
