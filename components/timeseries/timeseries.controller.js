@@ -1,6 +1,6 @@
-const Repository = require('./timeseries.DAL')
-const repo = new Repository()
-const { APIError } = require('../../utils')
+const { APIError } = require('../../helpers')
+const Service = require('./timeseries.service')
+const repo = new Service()
 
 module.exports = {
 	/**

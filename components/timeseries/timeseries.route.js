@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { APIError } = require('../../utils')
+const { APIError } = require('../../helpers')
 const { catchAsync } = require('../../middlewares')
 const { getTimeSeries } = require('./timeseries.controller')
 

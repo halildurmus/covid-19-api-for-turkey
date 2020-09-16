@@ -1,6 +1,7 @@
 const redis = require('../../db')
 const { redisKeyLatestReport } = require('../../config')
-class LatestRepository {
+
+class LatestService {
 	constructor(redisDb, redisKey) {
 		this.redis = redisDb || redis
 		this.redisKey = redisKey || redisKeyLatestReport
@@ -11,4 +12,4 @@ class LatestRepository {
 	}
 }
 
-module.exports = LatestRepository
+module.exports = LatestService

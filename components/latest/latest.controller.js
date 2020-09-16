@@ -1,6 +1,6 @@
-const Repository = require('./latest.DAL')
-const repo = new Repository()
-const { APIError } = require('../../utils')
+const { APIError } = require('../../helpers')
+const Service = require('./latest.service')
+const repo = new Service()
 
 module.exports = {
 	/**

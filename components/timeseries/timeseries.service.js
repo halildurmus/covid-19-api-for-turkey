@@ -1,6 +1,7 @@
 const redis = require('../../db')
 const { redisKeyTimeSeries } = require('../../config')
-class TimeSeriesRepository {
+
+class TimeSeriesService {
 	constructor(redisDb, redisKey) {
 		this.redis = redisDb || redis
 		this.redisKey = redisKey || redisKeyTimeSeries
@@ -11,4 +12,4 @@ class TimeSeriesRepository {
 	}
 }
 
-module.exports = TimeSeriesRepository
+module.exports = TimeSeriesService
