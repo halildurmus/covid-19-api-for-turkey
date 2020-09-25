@@ -1,4 +1,4 @@
-const redis = require('../../db')
+const { redis } = require('../../db')
 const { redisKeyTimeSeries } = require('../../config')
 
 class TimeSeriesService {

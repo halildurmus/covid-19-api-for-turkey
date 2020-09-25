@@ -1,6 +1,6 @@
 const request = require('supertest')
 const getTimeSeries = require('../../scrapers/getTimeSeries')
-const redis = require('../../db')
+const { redis } = require('../../db')
 const app = require('../../app')
 
 beforeAll(async () => {

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 const { formatJson, loggers } = require('../utils')
 const { redisKeyTimeSeries } = require('../config')
-const redis = require('../db')
+const { redis } = require('../db')
 const got = require('got')
 const logger = loggers.loggerScraper
 
