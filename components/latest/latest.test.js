@@ -1,14 +1,14 @@
-const request = require('supertest')
-const getLatestReport = require('../../scrapers/getLatestReport')
-const { redis } = require('../../db')
-const app = require('../../app')
-
-beforeAll(async () => {
-	redis.flushall()
-	await getLatestReport()
+// Mock error handler middleware.
+const { error } = require('../../middlewares')
+error.handler = jest.fn((err, req, res, next) => {
+	res.status(err.statusCode).json({
+		status: err.status,
+		message: err.message,
+	})
 })
 
-afterAll(() => redis.flushall())
+const app = require('../../app')
+const request = require('supertest')
 
 it('should list the latest report data for Turkey', async () => {
 	const res = await request(app)

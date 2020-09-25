@@ -1,14 +1,14 @@
-const request = require('supertest')
-const getTimeSeries = require('../../scrapers/getTimeSeries')
-const { redis } = require('../../db')
-const app = require('../../app')
-
-beforeAll(async () => {
-	redis.flushall()
-	await getTimeSeries()
+// Mock error handler middleware.
+const { error } = require('../../middlewares')
+error.handler = jest.fn((err, req, res, next) => {
+	res.status(err.statusCode).json({
+		status: err.status,
+		message: err.message,
+	})
 })
 
-afterAll(() => redis.flushall())
+const app = require('../../app')
+const request = require('supertest')
 
 describe('API Endpoints for time series data', () => {
 	it('should list the last 30 time series data for Turkey', async () => {

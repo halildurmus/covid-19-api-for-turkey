@@ -14,7 +14,10 @@
   "author": "Halil Ibrahim Durmus",
   "license": "ISC",
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+		"setupFilesAfterEnv": [
+			"<rootDir>/tests/setupTests.js"
+		]
   },
   "dependencies": {
     "concurrently": "^5.3.0",
