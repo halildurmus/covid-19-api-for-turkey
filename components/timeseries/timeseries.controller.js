@@ -1,6 +1,5 @@
 const { APIError } = require('../../helpers')
-const Service = require('./timeseries.service')
-const repo = new Service()
+const service = require('./timeseries.service')
 
 module.exports = {
 	/**
@@ -14,7 +13,7 @@ module.exports = {
 			limit = Number.POSITIVE_INFINITY
 		}
 
-		const data = await repo.getTimeSeries(limit)
+		const data = await service.getTimeSeries(limit)
 
 		if (!data) {
 			throw new APIError(500, `Couldn't get the time series data.`)

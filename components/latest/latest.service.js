@@ -1,15 +1,8 @@
 const { redis } = require('../../db')
 const { redisKeyLatestReport } = require('../../config')
 
-class LatestService {
-	constructor(redisDb, redisKey) {
-		this.redis = redisDb || redis
-		this.redisKey = redisKey || redisKeyLatestReport
-	}
-
+module.exports = {
 	async getLatestReport() {
-		return await this.redis.get(this.redisKey)
-	}
+		return await redis.get(redisKeyLatestReport)
+	},
 }
-
-module.exports = LatestService
