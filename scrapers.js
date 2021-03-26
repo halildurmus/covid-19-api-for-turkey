@@ -1,30 +1,17 @@
 const CronJob = require('cron').CronJob
-const getLatestReport = require('./scrapers/getLatestReport')
-const getTimeSeries = require('./scrapers/getTimeSeries')
+const getCovid19Report = require('./scrapers/getCovid19Report')
 const logger = require('./utils').loggers.loggerScraper
 
 // Executes the latest report and time series scrapers.
-getLatestReport().catch((err) => logger.error(`${err}`))
-getTimeSeries().catch((err) => logger.error(`${err}`))
+getCovid19Report().catch((err) => logger.error(`${err}`))
 
-// Creates a cronjob which executes the latest report scraper
+// Creates a cronjob which executes the COVID-19 report scraper
 // every 5 minutes between 6 and 10 pm.
-const getLatestReportJob = new CronJob(
+const getCovid19ReportJob = new CronJob(
 	'00 */5 18-22 * * *',
-	getLatestReport,
+	getCovid19Report,
 	null,
 	false,
 	'Europe/Istanbul'
 )
-getLatestReportJob.start()
-
-// Creates a cronjob which executes the time series scraper
-// every 5 minutes between 6 and 10 pm.
-const getTimeSeriesJob = new CronJob(
-	'00 */5 18-22 * * *',
-	getTimeSeries,
-	null,
-	false,
-	'Europe/Istanbul'
-)
-getTimeSeriesJob.start()
+getCovid19ReportJob.start()

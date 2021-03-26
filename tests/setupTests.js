@@ -1,11 +1,9 @@
-const getLatestReport = require('../scrapers/getLatestReport')
-const getTimeSeries = require('../scrapers/getTimeSeries')
+const getCovid19Report = require('../scrapers/getCovid19Report')
 const { redis } = require('../db')
 
 global.beforeAll(async () => {
 	redis.flushall()
-	await getLatestReport()
-	await getTimeSeries()
+	await getCovid19Report()
 })
 
 global.afterAll(() => redis.flushall())
