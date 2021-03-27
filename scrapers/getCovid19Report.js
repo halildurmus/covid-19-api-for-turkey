@@ -7,31 +7,25 @@ const got = require('got')
 const logger = loggers.loggerScraper
 
 async function getCovid19Report() {
+	const url =
+		'https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html'
 	try {
-		const url =
-			'https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html'
 		const response = await got.get(url)
 		const $ = cheerio.load(response.body)
-		const scriptData = $('script')[16].children[0].data
-		const formattedResponse = scriptData
-			.replace('//', '')
-			.replace('var geneldurumjson = ', '')
-			.replace('<![CDATA[', '')
-			.replace(']]>', '')
-			.replace(';//', '')
-			.slice(2, -1)
+		const scriptData = $('script:last').get(0).children[0].data
+		const formattedData = scriptData.slice(34, -7)
 
-		if (!formattedResponse.includes('tarih')) {
-			logger.error(
-				`Got bad response while trying to fetch the latest data. Response: ${response.body}.`
+		if (!formattedData.includes('tarih')) {
+			return Promise.reject(
+				Error(
+					`Got bad response while trying to fetch the latest data. Response: ${response.body}.`
+				)
 			)
-
-			return
 		}
 
 		const timeSeries = []
 		// Reverses the array which makes the order of the array, oldest to newest.
-		const data = JSON.parse(formattedResponse).reverse()
+		const data = JSON.parse(formattedData).reverse()
 		data.forEach((e) => {
 			e = formatJson(e)
 			const {
